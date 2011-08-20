@@ -28,10 +28,15 @@ After a fresh check out of a project from source control, the XCode workspace ma
 
 ## Other commands ##
 
-```ruby
-# Updating all dependencies will update all libraries to their latest versions.
+Updating all dependencies will update all libraries to their latest versions:
+
+```bash
 vendor update
-# Specifying the dependency will cause only the single library to be updated.
+```
+
+Specifying the dependency will cause only the single library to be updated:
+
+```bash
 vendor update facebook-ios-sdk
 ```
 
@@ -48,10 +53,10 @@ However, if the library requires frameworks or has dependencies on other Vendor 
 An example Vendor formula might look like:
 
 ```ruby
-require 'formula'
+require 'vendor/library'
 
-class Three20 < Formula
-  url "https://github.com/facebook/three20"
+class Three20 < Vendor::Library
+  source "https://github.com/facebook/three20"
   libraries libThree20.a
   frameworks "CoreAnimation"
   header_path "three20/Build/Products/three20"
