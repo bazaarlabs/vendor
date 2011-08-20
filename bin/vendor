@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'thor'
+require 'grit'
+require File.expand_path(File.dirname(__FILE__) + "/../lib/vendor.rb")
+
+Vendor::Cli.start(ARGV)

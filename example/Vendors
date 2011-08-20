@@ -1,0 +1,5 @@
+source "https://github.com/bazaarlabs/vendor.git"
+# lib "facebook-ios-sdk"  # Formula specified at source above
+lib "three20"
+lib "asi-http-request", :git => "https://github.com/pokeb/asi-http-request.git"
+lib "JSONKit", :git => "https://github.com/johnezang/JSONKit.git"
