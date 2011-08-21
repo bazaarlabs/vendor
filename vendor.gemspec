@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'grit'
   s.add_dependency 'thor'
+  s.add_dependency 'rb-appscript'
 end
