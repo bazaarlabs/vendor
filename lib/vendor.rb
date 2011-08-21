@@ -6,6 +6,7 @@ require File.expand_path(File.dirname(__FILE__) + '/vendor/xcode_handler')
 require File.expand_path(File.dirname(__FILE__) + '/vendor/library')
 require File.expand_path(File.dirname(__FILE__) + '/vendor/source')
 require File.expand_path(File.dirname(__FILE__) + '/vendor/dependency_file')
+require File.expand_path(File.dirname(__FILE__) + '/vendor/lock_file')
 require File.expand_path(File.dirname(__FILE__) + '/vendor/manager')
 require File.expand_path(File.dirname(__FILE__) + '/vendor/cli')
 Dir[File.expand_path(File.dirname(__FILE__) + '/vendor/libraries/*.rb')].each do |lib|

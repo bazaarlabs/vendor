@@ -1,7 +1,9 @@
+# Manages XCode interactions using AppleScript
+
 require 'appscript'
 
 module Vendor
-  module XcodeHandler
+  class XcodeHandler
     # Vendor::XcodeHandler.new
     def initialize(project_path)
       @app = Appscript.app('Xcode')
