@@ -37,6 +37,12 @@ module Vendor
       end
     end
 
+    # Returns the most accurate library list possible
+    # @manager.libraries => [<Library>, ...]
+    def libraries
+      self.locked_libraries || self.required_libraries
+    end
+
     # Returns the libraries required by Vendors file
     # @manager.required_libraries => [<Library>, ...]
     def required_libraries
@@ -46,12 +52,13 @@ module Vendor
     # Returns libraries that are locked as dependencies in Vendors.lock
     # @manager.locked_libraries => [<Library>, ...]
     def locked_libraries
-      @lockfile.libraries
+      @lockfile.libraries if @lockfile.exists?
     end
 
     # Returns libraries that are missing from local installation
     # @manager.locked_libraries => [<Library>, ...]
     def missing_libraries
+      return self.required_libraries unless @lockfile.exists?
       self.locked_libraries.select do |lib|
         local_path = File.join(@vendored_path, lib.name)
         installed = @depfile.libraries.find { |l| l.name == lib.name }

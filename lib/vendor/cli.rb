@@ -26,7 +26,7 @@ module Vendor
     def list
       manager = Vendor::Manager.new(Dir.pwd)
       say "Dependencies:\n"
-      manager.locked_libraries.each do |lib|
+      manager.libraries.each do |lib|
         say "  #{lib}", :yellow
       end
     end

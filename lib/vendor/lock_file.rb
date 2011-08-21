@@ -11,6 +11,12 @@ module Vendor
       @depfile = depfile
     end
 
+    # Returns if the file exists
+    # @lockfile.exists? => true
+    def exists?
+      File.exist?(@path)
+    end
+
     # Returns libraries specified in Vendor.lock
     # @lockfile.libraries => [<Library>, <Library>]
     def libraries
