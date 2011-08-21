@@ -21,6 +21,22 @@ module Vendor
       @lockfile.generate!
     end
 
+    # Updates the deps from Vendors, recreates Vendors.lock
+    # Only for library_name if specified
+    # @manager.update
+    # @manager.update("three20")
+    def update!(library_name=nil)
+      if library_name # only library
+        local_path = File.join(@vendored_path, library_name)
+        FileUtils.rm_rf(local_path)
+        library = @depfile.libraries.find { |l| l.name == library_name }
+        library.fetch(@vendored_path)
+      else # update all libs
+        FileUtils.rm_rf(@vendored_path)
+        self.install!
+      end
+    end
+
     # Returns the libraries required by Vendors file
     # @manager.required_libraries => [<Library>, ...]
     def required_libraries

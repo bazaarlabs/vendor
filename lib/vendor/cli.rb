@@ -15,9 +15,10 @@ module Vendor
 
     # vendor update
     # vendor update facebook-ios-sdk
-    desc "update GEM_NAME", "Updates the dependency specified in the Vendors file"
-    def update
-
+    desc "update LIB_NAME", "Updates the dependency specified in the Vendors file"
+    def update(lib_name=nil)
+      manager = Vendor::Manager.new(Dir.pwd)
+      manager.update!(lib_name)
     end # update
 
     # vendor list
